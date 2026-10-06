@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pete's Place North &amp; Liquor Store — Bar y Licorera en North Tampa</title>
+<meta name="description" content="Pete's Place North & Liquor Store: el bar de barrio de North Tampa. Karaoke, música en vivo, billar, dardos y licorera con entrega a domicilio. 8603 N Dale Mabry Hwy, Tampa, FL.">
+<style>
+  :root{
+    --negro:#0e0a07; --carbon:#1a130c; --whisky:#e8a020; --whisky-claro:#f5c453;
+    --rojo:#e63946; --crema:#f5ead9; --crema-apagado:#cbbfa8; --verde-neon:#39e66a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--negro);color:var(--crema);max-width:640px;margin:0 auto;line-height:1.55}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  /* ===== Header ===== */
+  header{position:sticky;top:0;z-index:50;background:rgba(14,10,7,.96);backdrop-filter:blur(6px);
+    border-bottom:2px solid var(--whisky);padding:.65rem .9rem;display:flex;align-items:center;justify-content:space-between}
+  .marca{font-family:"Arial Black",Impact,Haettenschweiler,sans-serif;font-size:1.02rem;letter-spacing:.5px;color:var(--crema)}
+  .marca span{color:var(--whisky)}
+  .marca small{display:block;font-family:inherit;font-weight:400;font-size:.62rem;letter-spacing:2.5px;color:var(--rojo);text-transform:uppercase}
+  .lang{display:flex;gap:.3rem}
+  .lang button{background:transparent;border:1px solid var(--whisky);color:var(--whisky);
+    font-weight:700;font-size:.75rem;padding:.32rem .6rem;border-radius:6px;cursor:pointer}
+  .lang button.activo{background:var(--whisky);color:#1a130c}
+  /* ===== Hero ===== */
+  .hero{position:relative;padding:3.2rem 1.1rem 2.4rem;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 50% -10%, rgba(232,160,32,.22), transparent 60%),
+      radial-gradient(60% 40% at 85% 110%, rgba(230,57,70,.18), transparent 60%),
+      var(--negro)}
+  .hero::before{content:"";position:absolute;inset:0;opacity:.07;pointer-events:none;
+    background-image:repeating-linear-gradient(45deg,var(--whisky) 0 2px,transparent 2px 26px)}
+  .etiqueta{display:inline-block;border:1px solid var(--rojo);color:var(--rojo);font-size:.68rem;
+    font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:.28rem .7rem;border-radius:20px;margin-bottom:.9rem}
+  .hero h1{font-family:"Arial Black",Impact,sans-serif;font-size:2.05rem;line-height:1.08;text-transform:uppercase;margin-bottom:.6rem}
+  .hero h1 .dorado{color:var(--whisky)}
+  .hero p.sub{color:var(--crema-apagado);font-size:1rem;margin-bottom:1.4rem;max-width:34ch}
+  .cta{display:flex;gap:.7rem;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:800;font-size:.95rem;padding:.85rem 1.3rem;border-radius:10px;text-align:center}
+  .btn-llamar{background:var(--whisky);color:#1a130c}
+  .btn-mapa{background:transparent;border:2px solid var(--whisky);color:var(--whisky)}
+  .edad21{margin-top:1.1rem;font-size:.72rem;color:var(--crema-apagado);letter-spacing:1px}
+  /* ===== Tira marquee ===== */
+  .tira{background:var(--whisky);color:#1a130c;font-weight:800;font-size:.82rem;letter-spacing:1px;
+    padding:.5rem 0;overflow:hidden;white-space:nowrap;text-transform:uppercase}
+  .tira span{display:inline-block;padding:0 1.2rem}
+  /* ===== Secciones ===== */
+  section{padding:2.2rem 1.1rem}
+  .kicker{color:var(--rojo);font-size:.72rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.4rem}
+  h2{font-family:"Arial Black",Impact,sans-serif;font-size:1.5rem;text-transform:uppercase;margin-bottom:1rem;line-height:1.15}
+  h2 .dorado{color:var(--whisky)}
+  /* ===== Especiales ===== */
+  .especiales{background:var(--carbon);border-top:1px solid #2c2115;border-bottom:1px solid #2c2115}
+  .cards{display:grid;gap:.9rem}
+  .card{background:#241a0e;border:1px solid #3a2a14;border-left:5px solid var(--whisky);
+    border-radius:12px;padding:1.1rem 1rem;display:flex;gap:1rem;align-items:center}
+  .card .icono{font-size:2rem;flex:0 0 auto}
+  .card h3{font-size:1rem;color:var(--whisky-claro);margin-bottom:.2rem}
+  .card p{font-size:.88rem;color:var(--crema-apagado)}
+  .card .precio{font-family:"Arial Black",Impact,sans-serif;font-size:1.7rem;color:var(--verde-neon);flex:0 0 auto}
+  .nota{font-size:.72rem;color:var(--crema-apagado);margin-top:1rem;font-style:italic}
+  /* ===== Experiencia ===== */
+  .grid-act{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+  .act{background:#1c1409;border:1px solid #33240f;border-radius:12px;padding:1rem .8rem;text-align:center}
+  .act .icono{font-size:1.9rem;display:block;margin-bottom:.4rem}
+  .act h3{font-size:.85rem;color:var(--crema);margin-bottom:.15rem}
+  .act p{font-size:.72rem;color:var(--crema-apagado)}
+  /* ===== Licorera ===== */
+  .licorera{background:linear-gradient(160deg,#171006 0%,#0e0a07 70%);border-top:1px solid #2c2115}
+  .lista{list-style:none;display:grid;gap:.7rem;margin-top:.4rem}
+  .lista li{background:#20160b;border-radius:10px;padding:.9rem 1rem;font-size:.92rem;display:flex;gap:.7rem;align-items:flex-start}
+  .lista li b{color:var(--whisky-claro)}
+  .lista .ok{color:var(--verde-neon);font-weight:800;flex:0 0 auto}
+  /* ===== Reseñas ===== */
+  .resenas .enc{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+  .estrellas{color:var(--whisky);font-size:1.15rem;letter-spacing:2px}
+  .resena{background:#1c1409;border-radius:12px;padding:1rem;margin-bottom:.8rem;border:1px solid #33240f}
+  .resena p{font-size:.9rem;font-style:italic;color:var(--crema)}
+  .resena .autor{margin-top:.5rem;font-size:.75rem;color:var(--whisky-claro);font-weight:700;font-style:normal}
+  /* ===== Visítanos ===== */
+  .visita{background:var(--carbon);border-top:1px solid #2c2115}
+  .horario{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem}
+  .horario td{padding:.5rem .2rem;border-bottom:1px dashed #3a2a14}
+  .horario td:last-child{text-align:right;color:var(--whisky-claro);font-weight:700}
+  .direccion{background:#241a0e;border-radius:12px;padding:1.1rem;margin-bottom:1rem;font-size:.95rem}
+  .direccion b{color:var(--whisky)}
+  .qr-box{display:flex;gap:1rem;align-items:center;background:#f5ead9;color:#1a130c;border-radius:12px;padding:1rem}
+  .qr-box img{width:104px;height:104px;flex:0 0 auto;border-radius:8px}
+  .qr-box p{font-size:.85rem;font-weight:600}
+  /* ===== Footer ===== */
+  footer{padding:1.8rem 1.1rem 2.4rem;text-align:center;border-top:2px solid var(--whisky)}
+  footer .tel{font-family:"Arial Black",Impact,sans-serif;font-size:1.5rem;color:var(--whisky);text-decoration:none;display:block;margin:.4rem 0}
+  footer p{font-size:.75rem;color:var(--crema-apagado)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="marca">PETE'S PLACE <span>NORTH</span><small data-es="&amp; Licorera" data-en="&amp; Liquor Store">&amp; Licorera</small></div>
+  <div class="lang">
+    <button id="btn-es" class="activo" onclick="setLang('es')">ES</button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</header>
+
+<div class="hero">
+  <span class="etiqueta" data-es="North Tampa · Desde el barrio" data-en="North Tampa · Neighborhood Spot">North Tampa · Desde el barrio</span>
+  <h1 data-es="Tu bar de barrio <span class='dorado'>y tu licorera</span> en un solo lugar" data-en="Your neighborhood bar <span class='dorado'>and liquor store</span> in one place">Tu bar de barrio <span class="dorado">y tu licorera</span> en un solo lugar</h1>
+  <p class="sub" data-es="Karaoke, música en vivo, billar y dardos en el patio con tiki bar. Y al lado, la licorera que te lleva el trago a la casa." data-en="Karaoke, live music, pool and darts on the patio with tiki bar. And next door, the liquor store that delivers to your home.">Karaoke, música en vivo, billar y dardos en el patio con tiki bar. Y al lado, la licorera que te lleva el trago a la casa.</p>
+  <div class="cta">
+    <a class="btn btn-llamar" href="tel:+18139335414" data-es="📞 Llamar ahora" data-en="📞 Call now">📞 Llamar ahora</a>
+    <a class="btn btn-mapa" href="https://maps.app.goo.gl/JAFcGAS6BktCETsc7" target="_blank" rel="noopener" data-es="📍 Cómo llegar" data-en="📍 Get directions">📍 Cómo llegar</a>
+  </div>
+  <p class="edad21" data-es="Solo mayores de 21 años · 8603 N Dale Mabry Hwy, Tampa, FL 33614" data-en="21+ only · 8603 N Dale Mabry Hwy, Tampa, FL 33614">Solo mayores de 21 años · 8603 N Dale Mabry Hwy, Tampa, FL 33614</p>
+</div>
+
+<div class="tira"><span data-es="🍺 Tragos fríos · 🎤 Karaoke · 🎱 Billar · 🎯 Dardos · 🎵 Música en vivo · 🥃 Licorera con entrega" data-en="🍺 Cold drinks · 🎤 Karaoke · 🎱 Pool · 🎯 Darts · 🎵 Live music · 🥃 Liquor store with delivery">🍺 Tragos fríos · 🎤 Karaoke · 🎱 Billar · 🎯 Dardos · 🎵 Música en vivo · 🥃 Licorera con entrega</span></div>
+
+<section class="especiales">
+  <p class="kicker" data-es="Especiales de la casa" data-en="House specials">Especiales de la casa</p>
+  <h2 data-es="Precios que <span class='dorado'>sí se sienten</span>" data-en="Prices you'll <span class='dorado'>actually feel</span>">Precios que <span class="dorado">sí se sienten</span></h2>
+  <div class="cards">
+    <div class="card">
+      <div class="precio">$4</div>
+      <div><h3 data-es="Well Liquor" data-en="Well Liquor">Well Liquor</h3>
+      <p data-es="Tu trago de la casa, bien servido y a precio de barrio." data-en="Your well drink, poured right at neighborhood prices.">Tu trago de la casa, bien servido y a precio de barrio.</p></div>
+    </div>
+    <div class="card">
+      <div class="precio">$3.50</div>
+      <div><h3 data-es="Cervezas nacionales" data-en="Domestic beers">Cervezas nacionales</h3>
+      <p data-es="Bien frías para ver el partido en una de las 12 pantallas." data-en="Ice cold for game day on one of our 12 TVs.">Bien frías para ver el partido en una de las 12 pantallas.</p></div>
+    </div>
+    <div class="card">
+      <div class="icono">⚾</div>
+      <div><h3 data-es="¡Jello shot gratis!" data-en="Free jello shot!">¡Jello shot gratis!</h3>
+      <p data-es="Cada vez que los Rays la sacan del parque durante el partido." data-en="Every time the Rays hit a home run during the game.">Cada vez que los Rays la sacan del parque durante el partido.</p></div>
+    </div>
+    <div class="card">
+      <div class="icono">🎤</div>
+      <div><h3 data-es="Karaoke de viernes" data-en="Friday karaoke">Karaoke de viernes</h3>
+      <p data-es="De 9 PM a 2 AM. El micrófono está caliente y el público también." data-en="9 PM to 2 AM. The mic is hot and so is the crowd.">De 9 PM a 2 AM. El micrófono está caliente y el público también.</p></div>
+    </div>
+  </div>
+  <p class="nota" data-es="*Especiales publicados en las redes del local. Sujeto a cambios — confirma en el bar." data-en="*Specials posted on the bar's social pages. Subject to change — confirm at the bar.">*Especiales publicados en las redes del local. Sujeto a cambios — confirma en el bar.</p>
+</section>
+
+<section>
+  <p class="kicker" data-es="La experiencia Pete's" data-en="The Pete's experience">La experiencia Pete's</p>
+  <h2 data-es="Más que un bar, <span class='dorado'>el patio del barrio</span>" data-en="More than a bar, <span class='dorado'>the neighborhood backyard</span>">Más que un bar, <span class="dorado">el patio del barrio</span></h2>
+  <div class="grid-act">
+    <div class="act"><span class="icono">🎤</span><h3 data-es="Karaoke" data-en="Karaoke">Karaoke</h3><p data-es="Viernes 9 PM – 2 AM" data-en="Fridays 9 PM – 2 AM">Viernes 9 PM – 2 AM</p></div>
+    <div class="act"><span class="icono">🎵</span><h3 data-es="Música en vivo" data-en="Live music">Música en vivo</h3><p data-es="Bandas locales en el patio" data-en="Local bands on the patio">Bandas locales en el patio</p></div>
+    <div class="act"><span class="icono">🎱</span><h3 data-es="Billar" data-en="Pool tables">Billar</h3><p data-es="Mesas adentro y afuera" data-en="Tables inside and out">Mesas adentro y afuera</p></div>
+    <div class="act"><span class="icono">🎯</span><h3 data-es="Dardos" data-en="Darts">Dardos</h3><p data-es="Torneos entre amigos" data-en="Friendly tournaments">Torneos entre amigos</p></div>
+    <div class="act"><span class="icono">🌽</span><h3 data-es="Cornhole" data-en="Cornhole">Cornhole</h3><p data-es="Para jugar en el patio" data-en="Backyard games">Para jugar en el patio</p></div>
+    <div class="act"><span class="icono">🍹</span><h3 data-es="Tiki bar" data-en="Tiki bar">Tiki bar</h3><p data-es="Bajo techo, al aire libre" data-en="Covered, open-air">Bajo techo, al aire libre</p></div>
+  </div>
+</section>
+
+<section class="licorera">
+  <p class="kicker" data-es="La licorera" data-en="The liquor store">La licorera</p>
+  <h2 data-es="Tu licorera <span class='dorado'>con entrega a domicilio</span>" data-en="Your liquor store <span class='dorado'>that delivers</span>">Tu licorera <span class="dorado">con entrega a domicilio</span></h2>
+  <ul class="lista">
+    <li><span class="ok">✓</span><span data-es="<b>Cervezas artesanales</b> en botella y lata, selección rotativa." data-en="<b>Craft beers</b> in bottles and cans, rotating selection."><b>Cervezas artesanales</b> en botella y lata, selección rotativa.</span></li>
+    <li><span class="ok">✓</span><span data-es="<b>Barra completa:</b> cocteles preparados por bartenders que el barrio ya conoce." data-en="<b>Full bar:</b> cocktails poured by bartenders the neighborhood already knows."><b>Barra completa:</b> cocteles preparados por bartenders que el barrio ya conoce.</span></li>
+    <li><span class="ok">✓</span><span data-es="<b>Entrega a domicilio:</b> pide tu licor sin salir de casa." data-en="<b>Delivery:</b> order your liquor without leaving home."><b>Entrega a domicilio:</b> pide tu licor sin salir de casa.</span></li>
+    <li><span class="ok">✓</span><span data-es="<b>Precios accesibles:</b> calidad de bar sin precios de centro." data-en="<b>Affordable prices:</b> bar quality without downtown prices."><b>Precios accesibles:</b> calidad de bar sin precios de centro.</span></li>
+  </ul>
+</section>
+
+<section class="resenas">
+  <p class="kicker" data-es="Lo que dice el barrio" data-en="What the neighborhood says">Lo que dice el barrio</p>
+  <h2 data-es="Reseñas <span class='dorado'>de Google</span>" data-en="<span class='dorado'>Google</span> reviews">Reseñas <span class="dorado">de Google</span></h2>
+  <div class="enc"><span class="estrellas">★★★★★</span><b>4.2 / 5</b>&nbsp;<span style="font-size:.8rem;color:var(--crema-apagado)" data-es="en Google" data-en="on Google">en Google</span></div>
+  <div class="resena">
+    <p>"Rockin' bar for live music inside or on cool outside chill area. Love playing here, great staff too!"</p>
+    <p class="autor">— Reseña de Google</p>
+  </div>
+  <div class="resena">
+    <p>"One of the greatest bartenders... Drinks are cold, company is good and singers are on fire!"</p>
+    <p class="autor">— Reseña de Google</p>
+  </div>
+  <div class="resena">
+    <p data-es="«El servicio fue fantástico: enérgico, amable... vendría todos los días con este trato.»" data-en="«The service was fantastic: energetic, friendly... I'd come every day with this kind of service.»">«El servicio fue fantástico: enérgico, amable... vendría todos los días con este trato.»</p>
+    <p class="autor">— Reseña de Google</p>
+  </div>
+</section>
+
+<section class="visita">
+  <p class="kicker" data-es="Visítanos" data-en="Visit us">Visítanos</p>
+  <h2 data-es="Abierto <span class='dorado'>hasta las 3 AM</span>" data-en="Open <span class='dorado'>until 3 AM</span>">Abierto <span class="dorado">hasta las 3 AM</span></h2>
+  <table class="horario">
+    <tr><td data-es="Lunes – Sábado" data-en="Monday – Saturday">Lunes – Sábado</td><td>8:00 AM – 3:00 AM</td></tr>
+    <tr><td data-es="Domingo" data-en="Sunday">Domingo</td><td>11:00 AM – 3:00 AM</td></tr>
+  </table>
+  <div class="direccion">
+    <b>Pete's Place North &amp; Liquor Store</b><br>
+    8603 N Dale Mabry Hwy<br>
+    Tampa, FL 33614<br>
+    📞 <a href="tel:+18139335414" style="color:var(--whisky);font-weight:700;text-decoration:none">(813) 933-5414</a>
+  </div>
+  <div class="qr-box">
+    <img src="qr/ubicacion.png" alt="QR ubicación">
+    <p data-es="Escanea para abrir la ubicación en Google Maps y llegar directo." data-en="Scan to open the location in Google Maps and get there directly.">Escanea para abrir la ubicación en Google Maps y llegar directo.</p>
+  </div>
+  <div class="cta" style="margin-top:1rem">
+    <a class="btn btn-llamar" href="tel:+18139335414" style="flex:1" data-es="📞 (813) 933-5414" data-en="📞 (813) 933-5414">📞 (813) 933-5414</a>
+    <a class="btn btn-mapa" href="https://maps.app.goo.gl/JAFcGAS6BktCETsc7" target="_blank" rel="noopener" style="flex:1" data-es="📍 Cómo llegar" data-en="📍 Directions">📍 Cómo llegar</a>
+  </div>
+</section>
+
+<footer>
+  <div class="marca" style="text-align:center">PETE'S PLACE <span style="color:var(--whisky)">NORTH</span></div>
+  <a class="tel" href="tel:+18139335414">(813) 933-5414</a>
+  <p>8603 N Dale Mabry Hwy, Tampa, FL 33614</p>
+  <p style="margin-top:.6rem" data-es="Bebe con responsabilidad. Solo mayores de 21 años." data-en="Drink responsibly. 21+ only.">Bebe con responsabilidad. Solo mayores de 21 años.</p>
+</footer>
+
+<script>
+function setLang(l){
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-es]').forEach(function(el){
+    el.innerHTML = (l === 'es') ? el.getAttribute('data-es') : el.getAttribute('data-en');
+  });
+  document.getElementById('btn-es').classList.toggle('activo', l === 'es');
+  document.getElementById('btn-en').classList.toggle('activo', l === 'en');
+  try{ localStorage.setItem('ppn-lang', l); }catch(e){}
+}
+(function(){
+  var l = 'es';
+  try{ l = localStorage.getItem('ppn-lang') || 'es'; }catch(e){}
+  if(l !== 'es' && l !== 'en') l = 'es';
+  setLang(l);
+})();
+</script>
+</body>
+</html>
